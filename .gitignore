@@ -24,5 +24,3 @@ out/
 ### VS Code ###
 .vscode/
 
-### NPM ###
-app/build_packageNpmApp/
