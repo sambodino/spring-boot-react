@@ -1,0 +1,9 @@
+.my-tracks {
+  display: inline-block;
+}
+
+.spotify-card {
+  float: left;
+  margin: .5rem;
+  width: 18rem;
+}

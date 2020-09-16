@@ -19,7 +19,7 @@ const SpotifyCard = () => {
   }, []);
 
   return (<div className='my-tracks'>
-    <p>This is what I've currently been listening to...</p>
+    <p>This is an updated view of what I've currently been listening to from <a href='https://developer.spotify.com/documentation/'>Spotify's API</a>...</p>
     {tracks.map((item) => {
       return (
         <Card className='spotify-card'>

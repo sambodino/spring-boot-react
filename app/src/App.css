@@ -31,3 +31,7 @@
     transform: rotate(360deg);
   }
 }
+
+.about-me {
+  margin: 5rem;
+}
