@@ -17,5 +17,7 @@ dependencies {
 	runtimeOnly project(':app')
 	implementation 'org.springframework.boot:spring-boot-starter'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation platform('software.amazon.awssdk:bom:2.14.17')
+	implementation 'software.amazon.awssdk:secretsmanager'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
