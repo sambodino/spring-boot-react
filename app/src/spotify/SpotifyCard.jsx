@@ -1,19 +1,40 @@
-import React from 'react';
+// @ts-nocheck
+import React, {useEffect, useState} from 'react';
 import { Card } from 'react-bootstrap';
 
+import './Spotify.css';
+
 const SpotifyCard = () => {
-    return (
-      <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top"/>
-        <Card.Body>
-          <Card.Title>Card Title</Card.Title>
-          <Card.Text>
-            Some quick example text to build on the card title and make up the bulk of
-            the card's content.
-          </Card.Text>
-        </Card.Body>
-      </Card>
-    );
-}
+  const [tracks, setTracks] = useState([]);
+
+  useEffect(() => {
+    async function fetchTracks() {
+      const response = await fetch('/tracks').then((res) => res.json());
+
+      const items = response.items;
+      setTracks([items[0], items[1], items[2]]);
+    }
+
+    fetchTracks();
+  }, []);
+
+  return (<div className='my-tracks'>
+    <p>This is an updated view of what I've currently been listening to from <a href='https://developer.spotify.com/documentation/'>Spotify's API</a>...</p>
+    {tracks.map((item) => {
+      return (
+        <Card className='spotify-card'>
+          <Card.Img variant="top"/>
+          <Card.Body>
+            <Card.Img src={item.track.album.images[0].url}/>
+            <Card.Title>{item.track.name}</Card.Title>
+            <Card.Text>
+              {item.track.artists[0].name}
+            </Card.Text>
+          </Card.Body>
+        </Card>
+      );
+    })}
+  </div>);
+};
 
 export default SpotifyCard;
