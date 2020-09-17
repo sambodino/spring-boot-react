@@ -8,8 +8,10 @@ const Collapsible = (props) => {
   const [open, setOpen] = useState(false);
 
   return (<div className='collapsible'>
-    {props.text}
-    {open ? <ChevronUp onClick={() => setOpen(!open)}/> : <ChevronDown onClick={() => setOpen(!open)}/>}
+    <div className='collapsible-heading' onClick={() => setOpen(!open)}>
+      {props.text}
+      {open ? <ChevronUp/> : <ChevronDown/>}
+    </div>
     <Collapse in={open}>
       {props.children}
     </Collapse>

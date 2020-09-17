@@ -1,8 +1,36 @@
+.collapsible {
+    display: inline-block;
+}
+
+@media (min-width: 992px) {
+  .collapsible {
+    display: inline-block;
+    width: 75%;
+  }
+}
+
 .collapsible-text {
   display: inline-block;
 }
 
+.collapsible-heading {
+  cursor: pointer;
+}
+
+.collapsible h6 {
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+
 svg {
   margin-left: .5rem;
-  cursor: pointer;
+}
+
+ul {
+  display: inline-block;
+  text-align: left;
+}
+
+li {
+  font-weight: 600;
 }
