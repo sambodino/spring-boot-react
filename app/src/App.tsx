@@ -14,6 +14,11 @@ const App = () => {
             <Collapsible text={<h5 className='collapsible-text'>John Deere, Intelligent Solutions Group</h5>}>
                 <div>
                     <i>June 2017 - present</i>
+                    <h6>Acquired Skills</h6>
+                    <ul>
+                        <p>REST APIs, GraphQL, OAuth 2.0, AWS Cloud Infrastructure (infrastructure as code), Java, Scala, ReactJS, Redux & React Hooks, NodeJS, SQL, deploy pipelines</p>
+                    </ul>
+
                     <h6>Key Projects</h6>
                     <ul>
                         <li>App Store</li>
@@ -32,10 +37,6 @@ const App = () => {
                         <p>This solution processes 5000-10,000 notifications a second leveraging AWS Kinesis streams and asynchronous processing.</p>
                         <p>The web/mobile app gives users the ability to manage these notifications.</p>
                         <p>These notifications are critical to the maintenance and safety of equipment.</p>
-                    </ul>
-                    <h6>Acquired Skills</h6>
-                    <ul>
-                        <p>REST APIs, GraphQL, OAuth 2.0, AWS Cloud Infrastructure (infrastructure as code), Java, Scala, ReactJS, Redux & React Hooks, NodeJS, SQL, deploy pipelines</p>
                     </ul>
                 </div>
             </Collapsible>
