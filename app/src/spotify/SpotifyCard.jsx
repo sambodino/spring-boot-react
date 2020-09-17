@@ -1,18 +1,29 @@
 // @ts-nocheck
 import React, {useEffect, useState} from 'react';
-import { Card } from 'react-bootstrap';
+import { Card, Spinner } from 'react-bootstrap';
 
 import './Spotify.css';
 
 const SpotifyCard = () => {
   const [tracks, setTracks] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
-    async function fetchTracks() {
-      const response = await fetch('/tracks').then((res) => res.json());
+    function fetchTracks() {
+      setIsLoading(true);
+      fetch('/tracks')
+        .then(async (res) => {
+          const response = await res.json();
+          const items = response.items;
 
-      const items = response.items;
-      setTracks([items[0], items[1], items[2]]);
+          setTracks([items[0], items[1], items[2]]);
+          setIsLoading(false);
+        })
+        .catch(() => {
+          setIsLoading(false);
+          setError(true);
+        });
     }
 
     fetchTracks();
@@ -20,6 +31,8 @@ const SpotifyCard = () => {
 
   return (<div className='my-tracks'>
     <p>This is an updated view of what I've currently been listening to from <a href='https://developer.spotify.com/documentation/'>Spotify's API</a>...</p>
+    {isLoading && <Spinner animation='grow' variant='primary' />}
+    {error && <p>Something went wrong requesting recently played tracks :(</p>}
     {tracks.map((item) => {
       return (
         <Card className='spotify-card'>
