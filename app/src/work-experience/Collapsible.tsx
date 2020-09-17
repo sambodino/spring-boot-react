@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Collapse } from 'react-bootstrap';
-import { ChevronDown } from 'react-bootstrap-icons';
+import { ChevronDown, ChevronUp } from 'react-bootstrap-icons';
 
 import './Collapsible.css';
 
@@ -9,7 +9,7 @@ const Collapsible = (props) => {
 
   return (<div className='collapsible'>
     {props.text}
-    <ChevronDown onClick={() => setOpen(!open)}/>
+    {open ? <ChevronUp onClick={() => setOpen(!open)}/> : <ChevronDown onClick={() => setOpen(!open)}/>}
     <Collapse in={open}>
       {props.children}
     </Collapse>
