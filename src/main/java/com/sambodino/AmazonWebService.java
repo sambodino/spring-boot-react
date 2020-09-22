@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.sambodino;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -9,7 +9,6 @@ import software.amazon.awssdk.services.secretsmanager.model.GetSecretValueReques
 import software.amazon.awssdk.services.secretsmanager.model.GetSecretValueResponse;
 
 import java.io.IOException;
-import java.security.CryptoPrimitive;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;

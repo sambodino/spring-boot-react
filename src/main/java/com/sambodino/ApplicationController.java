@@ -1,34 +1,25 @@
-package com.example.demo;
+package com.sambodino;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import java.io.IOException;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.atomic.AtomicLong;
-
 @RestController
-public class DemoController {
-    private static final String template = "Hello, %s!";
-    private final AtomicLong counter = new AtomicLong();
-
+public class ApplicationController {
     private final RestTemplate restTemplate;
     private final String spotifyApiUrl;
     private final String spotifyAccountsUrl;
     private final String clientKey;
     private final AmazonWebService awsService;
 
-    public DemoController(RestTemplate restTemplate,
-                          @Value("${spotify.api.url}") String spotifyApiUrl,
-                          @Value("${spotify.accounts.url}") String spotifyAccountsUrl,
-                          @Value("${spotify.clientKey}") String clientKey,
-                          AmazonWebService awsService) {
+    public ApplicationController(RestTemplate restTemplate,
+                                 @Value("${spotify.api.url}") String spotifyApiUrl,
+                                 @Value("${spotify.accounts.url}") String spotifyAccountsUrl,
+                                 @Value("${spotify.clientKey}") String clientKey,
+                                 AmazonWebService awsService) {
         this.restTemplate = restTemplate;
         this.spotifyApiUrl = spotifyApiUrl;
         this.spotifyAccountsUrl = spotifyAccountsUrl;
@@ -63,11 +54,5 @@ public class DemoController {
     private ResponseEntity<String> getRecentlyPlayedTracks(HttpHeaders headers) {
         var url = spotifyApiUrl + "/v1/me/player/recently-played?type=track";
         return restTemplate.exchange(url, HttpMethod.GET, new HttpEntity<>(headers), String.class);
-    }
-
-    @RequestMapping("/greeting")
-    public Greeting greeting(@RequestParam(value="name", defaultValue="World") String name) {
-        return new Greeting(counter.incrementAndGet(),
-                String.format(template, name));
     }
 }

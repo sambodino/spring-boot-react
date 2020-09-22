@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.sambodino;
 
 public class SpotifySecrets {
     private String clientSecret;
