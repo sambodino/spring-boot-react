@@ -38,31 +38,26 @@ public class DemoController {
 
     @GetMapping(value = "/tracks")
     public String getTracks() {
-        try {
-            SpotifySecrets secret = awsService.getSecret();
-            String clientSecret = secret.getClientSecret();
-            String refreshToken = secret.getRefreshToken();
+        SpotifySecrets secret = awsService.getSecret();
+        String clientSecret = secret.getClientSecret();
+        String refreshToken = secret.getRefreshToken();
 
-            var form = new LinkedMultiValueMap<>();
-            form.add("grant_type", "refresh_token");
-            form.add("refresh_token", refreshToken);
+        var form = new LinkedMultiValueMap<>();
+        form.add("grant_type", "refresh_token");
+        form.add("refresh_token", refreshToken);
 
-            var headers = new HttpHeaders();
-            headers.setBasicAuth(clientKey, clientSecret);
-            headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+        var headers = new HttpHeaders();
+        headers.setBasicAuth(clientKey, clientSecret);
+        headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
 
-            ResponseEntity<AccessToken> accessTokenResponse = restTemplate
-                    .exchange(spotifyAccountsUrl + "/api/token", HttpMethod.POST, new HttpEntity<>(form, headers), AccessToken.class);
+        ResponseEntity<AccessToken> accessTokenResponse = restTemplate
+                .exchange(spotifyAccountsUrl + "/api/token", HttpMethod.POST, new HttpEntity<>(form, headers), AccessToken.class);
 
-            headers.setBearerAuth(accessTokenResponse.getBody().getAccessToken());
-            headers.setContentType(MediaType.APPLICATION_JSON);
+        headers.setBearerAuth(accessTokenResponse.getBody().getAccessToken());
+        headers.setContentType(MediaType.APPLICATION_JSON);
 
-            ResponseEntity<String> recentTracks = getRecentlyPlayedTracks(headers);
-            return recentTracks.getBody();
-        } catch (InterruptedException | ExecutionException | IOException e) {
-            e.printStackTrace();
-            return "";
-        }
+        ResponseEntity<String> recentTracks = getRecentlyPlayedTracks(headers);
+        return recentTracks.getBody();
     }
 
     private ResponseEntity<String> getRecentlyPlayedTracks(HttpHeaders headers) {
