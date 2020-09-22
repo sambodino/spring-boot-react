@@ -1,7 +1,6 @@
-package com.example.demo;
+package com.sambodino;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.springframework.stereotype.Component;
 
 public class AccessToken {
     @JsonProperty("access_token")
