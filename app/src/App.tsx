@@ -40,7 +40,7 @@ const App = () => {
                     </ul>
                 </div>
             </Collapsible>
-            <a href='https://www.linkedin.com/in/sknepper/'>https://www.linkedin.com/in/sknepper/</a>
+            <a className='linkedin' href='https://www.linkedin.com/in/sknepper/'>https://www.linkedin.com/in/sknepper/</a>
         </div>
         <SpotifyCard />
     </div>);
