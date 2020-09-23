@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React, {useEffect, useState} from 'react';
-import { Card, Spinner } from 'react-bootstrap';
+import { Card, Spinner, Col, Row, Container } from 'react-bootstrap';
 
 import './Spotify.css';
 
@@ -33,20 +33,26 @@ const SpotifyCard = () => {
     <p>This is an updated view of what I've currently been listening to from <a href='https://developer.spotify.com/documentation/'>Spotify's API</a>...</p>
     {isLoading && <Spinner animation='grow' variant='primary' />}
     {error && <p>Something went wrong requesting recently played tracks :(</p>}
-    {tracks.map((item) => {
-      return (
-        <Card className='spotify-card'>
-          <Card.Img variant="top"/>
-          <Card.Body>
-            <Card.Img src={item.track.album.images[0].url}/>
-            <Card.Title>{item.track.name}</Card.Title>
-            <Card.Text>
-              {item.track.artists[0].name}
-            </Card.Text>
-          </Card.Body>
-        </Card>
-      );
-    })}
+    <Container>
+      <Row>
+        {tracks.map((item) => {
+          return (
+            <Col>
+              <Card className='spotify-card'>
+                <Card.Img variant="top"/>
+                <Card.Body>
+                  <Card.Img src={item.track.album.images[0].url}/>
+                  <Card.Title>{item.track.name}</Card.Title>
+                  <Card.Text>
+                    {item.track.artists[0].name}
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+          );
+        })}
+      </Row>
+    </Container>
   </div>);
 };
 

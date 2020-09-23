@@ -36,6 +36,18 @@
   margin: 5rem;
 }
 
+.key-projects {
+  margin-bottom: 1rem;
+}
+
+.key-projects .card-header {
+  cursor: pointer;
+}
+
+.key-projects p {
+  text-align: left;
+}
+
 .linkedin {
   display: block;
 }
