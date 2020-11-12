@@ -8,10 +8,6 @@
   margin-bottom: 5rem;
 }
 
-.App .row {
-  display: contents;
-}
-
 .about-me {
   margin: auto;
   text-align: left;
@@ -22,7 +18,7 @@
 }
 
 .experience h6 {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
 }
 
 .experience td {

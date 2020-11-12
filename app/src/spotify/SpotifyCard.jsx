@@ -17,8 +17,8 @@ const SpotifyCard = () => {
           const response = await res.json();
           const items = response.items;
 
-          setTracks([items[0], items[1], items[2]]);
-          setIsLoading(false);
+          // setTracks([items[0], items[1], items[2]]);
+          // setIsLoading(false);
         })
         .catch(() => {
           setIsLoading(false);
@@ -30,22 +30,20 @@ const SpotifyCard = () => {
   }, []);
 
   return (
-    <div className="my-tracks">
-      <p>
+    <Row className='spotify-cards'>
+      <p className='spotify-desc'>
         Here's an updated view of what I've currently been listening to from{' '}
         <a href="https://developer.spotify.com/documentation/">Spotify's API</a>
         ...
       </p>
-      {isLoading && <Spinner animation="grow" variant="primary" />}
+      {isLoading && <Spinner className='spinner' animation="grow" variant="primary" />}
       {error && (
         <p>Something went wrong requesting recently played tracks :(</p>
       )}
-      <Row>
         {tracks.map((item) => {
           return (
             <Col>
-              <Card className="spotify-card">
-                <Card.Img variant="top" />
+              <Card>
                 <Card.Body>
                   <Card.Img src={item.track.album.images[0].url} />
                   <Card.Title>{item.track.name}</Card.Title>
@@ -56,7 +54,6 @@ const SpotifyCard = () => {
           );
         })}
       </Row>
-    </div>
   );
 };
 

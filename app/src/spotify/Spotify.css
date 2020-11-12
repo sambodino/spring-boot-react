@@ -1,4 +1,37 @@
-.spotify-card {
+.spotify-cards {
+  /* background-color: #9342f5; */
+  background-color: #509BF5;
+  padding: 1rem;
+  text-align: center;
+}
+
+.spotify-cards .card {
+  background-color: #A0C3D2;
+  margin-bottom: 1rem;
+}
+
+.spotify-cards a {
+  /* color: #38B954; */
+  color: white;
+  font-weight: bold;
+}
+
+.spotify-desc {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.spotify-cards p {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.spotify-cards .card {
   display: inline-flex;
   width: 16rem;
+}
+
+.spinner {
+  margin-left: 45%;
 }

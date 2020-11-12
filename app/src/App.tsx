@@ -11,8 +11,8 @@ const App = () => {
     <div className="App">
       <ProfilePic/>
       <Container>
-        <Row>
-          <table className="about-me" cellSpacing="0">
+        <Row className='about-me'>
+          <table cellSpacing="0">
             <tbody>
               <tr>
                 <td className='career'>Software Developer</td>
@@ -87,8 +87,8 @@ const App = () => {
             </tbody>
           </table>
         </Row>
-        <SpotifyCard />
       </Container>
+      <SpotifyCard />
     </div>
   );
 };
