@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React, { useEffect, useState } from 'react';
-import { Card, Spinner, Col, Row, Container } from 'react-bootstrap';
+import { Card, Spinner, Col, Row } from 'react-bootstrap';
 
 import './Spotify.css';
 

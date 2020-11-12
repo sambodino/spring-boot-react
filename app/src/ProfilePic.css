@@ -1,0 +1,21 @@
+.profile-pic {
+  background-color: #34eb92;
+  padding: 5rem 0 2rem 0;
+}
+
+.profile-pic span {
+  display: block;
+  text-align: center;
+}
+
+.full-name {
+  font-weight: 400;
+  font-size: 3rem;
+  color: white;
+  margin-top: 2rem;
+}
+
+img {
+  border-radius: 5%;
+  height: 15rem;
+}
